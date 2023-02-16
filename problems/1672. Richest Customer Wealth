@@ -1,0 +1,25 @@
+class Solution {
+    public int maximumWealth(int[][] accounts) {
+                int ans = Integer.MIN_VALUE;
+
+      for(int person = 0;person< accounts.length ; person++)
+      {
+          int totalMoney=0;
+          for(int account = 0; account<accounts[person].length;account++)
+          {
+
+              int Money = accounts[person][account];
+               totalMoney = Money+totalMoney;
+          }
+          //now we have a total money of a person in different accounts
+          //check which person has a most money
+
+          if(totalMoney>ans)
+          {
+              ans=totalMoney;
+          }
+      }
+      return ans;
+        
+    }
+}
