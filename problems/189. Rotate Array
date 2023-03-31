@@ -1,3 +1,4 @@
+//Brute force approach , Time complexity = O(n*k)
 class Solution {
     public void rotate(int[] nums, int k) {
                 
@@ -12,5 +13,26 @@ class Solution {
                }
                 k--;
             }
+    }
+}
+
+//Optimized Solution , Time complexity = O(n)
+class Solution {
+    public void rotate(int[] nums, int k) {
+        k = k % nums.length; // handle the case where k is greater than n
+        reverse(nums , 0 , nums.length-1) ; //reverse entire array
+        reverse(nums , 0 ,k-1) ; //reverse first k elements
+        reverse(nums , k ,nums.length-1 ) ; //reverse remaining elements
+    }
+    public void reverse(int[] nums , int start , int end)
+    {
+        while(start<end)
+        {
+           int temp = nums[start] ; 
+           nums[start] = nums[end] ; 
+           nums[end] = temp ;
+           start++;
+           end--;
+        }
     }
 }
